@@ -19,6 +19,17 @@
 --->
 
 ## Upcoming Release
+* Added breaking change attribute to notify that Zone default behaviour will be changed
+    - `New-AzPublicIpAddress`
+    - `New-AzPublicIpPrefix`
+    - `New-AzLoadBalancerFrontendIpConfig`
+* Added support for a new top level resource SecurityPartnerProvider
+    - New cmdlets added:
+        - New-AzSecurityPartnerProvider
+        - Remove-AzSecurityPartnerProvider
+        - Get-AzSecurityPartnerProvider
+        - Set-AzSecurityPartnerProvider
+* Added `RequiredZoneNames` on `PSPrivateLinkResource` and `GroupId` on `PSPrivateEndpointConnection`
 
 ## Version 2.5.0
 * Updated cmdlets to enable connection on private IP for Virtual Network Gateway.
@@ -37,6 +48,25 @@
 * Updated cmdlets to enable setting of DPD Timeout on Virtual Network Gateway Connections.
     - New-AzVirtualNetworkGatewayConnection
     - Set-AzVirtualNetworkGatewayConnection
+* Added resource type IpAllocation 
+* Added properties to Subnet
+    - Added property 'IpAllocations' as type of PSResourceId to PSIpAllocation
+* Added properties to Virtual Network
+    - Added property 'IpAllocations' as type of PSResourceId to PSIpAllocation
+* Added support for IpAllocation resource
+    - New cmdlet added:
+        - Get-AzIpAllocation
+        - New-AzIpAllocation
+        - Remove-AzIpAllocation
+        - Get-AzIpAllocation
+    - Updated `New-AzVirtualNetwork`
+        - Added another optional parameter IpAllocations to specify the IpAllocation
+    - Updated `New-AzVirtualNetworkSubnetConfig`
+        - Added another optional parameter IpAllocations to specify the IpAllocation
+    - Updated `Set-AzVirtualNetworkSubnetConfig`
+        - Added another optional parameter IpAllocations to specify the IpAllocation
+    - Updated `Add-AzVirtualNetworkSubnetConfig`
+        - Added another optional parameter IpAllocations to specify the IpAllocation
 
 ## Version 2.4.0
 * Updated cmdlets to allow cross-tenant VirtualHubVnetConnections
