@@ -42,12 +42,12 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.ManagedServices.Commands
 
         [Parameter(ParameterSetName = DefaultParameterSet, Mandatory = true, HelpMessage = "The registration definition identifier.")]
         [ValidateNotNullOrEmpty]
-        public string RegistrationDefinitionName { get; set; }
+        public string Name { get; set; }
 
         [Parameter(ParameterSetName = ByResourceIdParameterSet, ValueFromPipelineByPropertyName = true, Mandatory = true, HelpMessage = "The fully qualified resource id of the registration definition.")]
         [ValidateNotNullOrEmpty]
         [Alias("ResourceId")]
-        public string RegistrationDefinitionResourceId { get; set; }
+        public string Id { get; set; }
 
         [Parameter(ParameterSetName = ByInputObjectParameterSet, ValueFromPipeline = true, Mandatory = true, HelpMessage = "The registration definition input object.")]
         public PSRegistrationDefinition RegistrationDefinition { get; set; }
@@ -60,19 +60,19 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.ManagedServices.Commands
         public override void ExecuteCmdlet()
         {
             string scope = this.GetDefaultScope();
-            string definitionId = this.RegistrationDefinitionResourceId;
+            string definitionId = this.Id;
 
-            if (this.IsParameterBound(x => x.RegistrationDefinitionName))
+            if (this.IsParameterBound(x => x.Name))
             {
                 scope = this.Scope ?? this.GetDefaultScope();
                 var subscriptionScope = scope.GetSubscriptionId().ToSubscriptionResourceId();
 
                 // registation definitions can only exist at the subscription level.
-                definitionId = $"{subscriptionScope}/providers/Microsoft.ManagedServices/registrationDefinitions/{this.RegistrationDefinitionName}";
+                definitionId = $"{subscriptionScope}/providers/Microsoft.ManagedServices/registrationDefinitions/{this.Name}";
             }
-            else if (this.IsParameterBound(x => x.RegistrationDefinitionResourceId))
+            else if (this.IsParameterBound(x => x.Id))
             {
-                definitionId = this.RegistrationDefinitionResourceId;
+                definitionId = this.Id;
                 scope = this.Scope ?? definitionId.GetSubscriptionId().ToSubscriptionResourceId();
             }
             else if (this.IsParameterBound(x => x.RegistrationDefinition))

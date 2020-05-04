@@ -22,7 +22,7 @@ function New-AzManagedServicesAssignmentWithId
     [CmdletBinding()]
     param(
         [string] [Parameter()] $Scope,
-        [string] [Parameter()] $RegistrationDefinitionResourceId,
+        [string] [Parameter()] $Id,
         [Guid]   [Parameter()] $RegistrationAssignmentId
     )
 
@@ -36,9 +36,9 @@ function New-AzManagedServicesAssignmentWithId
         $cmdlet.Scope = $Scope
     }
 
-    if (-not ([string]::IsNullOrEmpty($RegistrationDefinitionResourceId)))
+    if (-not ([string]::IsNullOrEmpty($Id)))
     {	
-        $cmdlet.RegistrationDefinitionResourceId = $RegistrationDefinitionResourceId
+        $cmdlet.Id = $Id
     }
 
     if ($RegistrationAssignmentId -ne $null -and $RegistrationAssignmentId -ne [System.Guid]::Empty)
@@ -124,7 +124,7 @@ function Test-ManagedServices_CRUD
 
 	#put assignment
 	$assignment = New-AzManagedServicesAssignmentWithId `
-					-RegistrationDefinitionResourceId $definition.Id `
+					-Id $definition.Id `
 					-RegistrationAssignmentId $assignmentId	
 	Assert-NotNull $assignment
 

@@ -14,13 +14,13 @@ Creates or updates a registration assignment.
 
 ### Default (Default)
 ```
-New-AzManagedServicesAssignment [[-Scope] <String>] -RegistrationDefinitionName <String> [-AsJob]
+New-AzManagedServicesAssignment [[-Scope] <String>] -Name <String> [-AsJob]
  [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ByResourceId
 ```
-New-AzManagedServicesAssignment [[-Scope] <String>] -RegistrationDefinitionId <String> [-AsJob]
+New-AzManagedServicesAssignment [[-Scope] <String>] -Id <String> [-AsJob]
  [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -37,7 +37,7 @@ Creates or updates a registration assignment.
 
 ### Example 1
 ```powershell
-PS C:\> New-AzManagedServicesAssignment -RegistrationDefinitionId /subscriptions/38bd4bef-41ff-45b5-b3af-d03e55a4ca15/providers/Microsoft.ManagedServices/registrationDefinitions/d4d14a4c-9b54-4dc3-b755-6d0659e0224b
+PS C:\> New-AzManagedServicesAssignment -Id /subscriptions/38bd4bef-41ff-45b5-b3af-d03e55a4ca15/providers/Microsoft.ManagedServices/registrationDefinitions/d4d14a4c-9b54-4dc3-b755-6d0659e0224b
 
 Name                                 RegistrationDefinitionId
 ----                                 ------------------------
@@ -48,7 +48,7 @@ Creates a new registration assignment given the fully qualified resource id of t
 
 ### Example 2
 ```powershell
-New-AzManagedServicesAssignment -Scope /subscriptions/38bd4bef-41ff-45b5-b3af-d03e55a4ca15/resourceGroups/mygroup1 -RegistrationDefinitionName 47f471b3-ff5f-463c-8a1f-286501b01ddc
+New-AzManagedServicesAssignment -Scope /subscriptions/38bd4bef-41ff-45b5-b3af-d03e55a4ca15/resourceGroups/mygroup1 -Name 47f471b3-ff5f-463c-8a1f-286501b01ddc
 
 Name                                 RegistrationDefinitionId
 ----                                 ------------------------
@@ -114,7 +114,7 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -RegistrationDefinitionResourceId
+### -Id
 The fully qualified resource id of the registration definition (for example, /subscriptions/bb6d49b2-603d-489f-b6ca-ca4dc497c749/providers/Microsoft.ManagedServices/registrationDefinitions/b0c052e5-c437-4771-a476-8b1201158a57).
 
 ```yaml
@@ -129,7 +129,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -RegistrationDefinitionName
+### -Name
 The registration definition name (for example, b0c052e5-c437-4771-a476-8b1201158a57.
 
 ```yaml
