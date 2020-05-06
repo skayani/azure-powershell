@@ -14,13 +14,13 @@ Deletes a registration assignment.
 
 ### Default (Default)
 ```
-Remove-AzManagedServicesAssignment [[-Scope] <String>] -Id <String> [-AsJob]
+Remove-AzManagedServicesAssignment [[-Scope] <String>] -Name <String> [-AsJob]
  [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ByResourceId
 ```
-Remove-AzManagedServicesAssignment -ResourceId <String> [-AsJob] [-DefaultProfile <IAzureContextContainer>]
+Remove-AzManagedServicesAssignment -Id <String> [-AsJob] [-DefaultProfile <IAzureContextContainer>]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -37,7 +37,7 @@ Deletes a registration assignment.
 
 ### Example 1
 ```powershell
-PS C:\Remove-AzManagedServicesAssignment -Id b037e73c-815e-4472-868f-59e51b49b949
+PS C:\Remove-AzManagedServicesAssignment -Name b037e73c-815e-4472-868f-59e51b49b949
 
 Name                                 RegistrationDefinitionId
 ----                                 ------------------------
@@ -48,7 +48,7 @@ Deletes the registration assignment under the default scope.
 
 ### Example 2
 ```powershell
-PS C:\> Remove-AzManagedServicesAssignment -ResourceId /subscriptions/38bd4bef-41ff-45b5-b3af-d03e55a4ca15/providers/Microsoft.ManagedServices/registrationAssignments/88ba878b-9a3c-40c3-80da-015cbe488a2f
+PS C:\> Remove-AzManagedServicesAssignment -Id /subscriptions/38bd4bef-41ff-45b5-b3af-d03e55a4ca15/providers/Microsoft.ManagedServices/registrationAssignments/88ba878b-9a3c-40c3-80da-015cbe488a2f
 
 Name                                 RegistrationDefinitionId
 ----                                 ------------------------
@@ -97,7 +97,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Id
+### -Name
 The registration assignment GUID (for example, b0c052e5-c437-4771-a476-8b1201158a57)
 ```yaml
 Type: System.String
@@ -126,7 +126,7 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -ResourceId
+### -Id
 The fully qualified resource id of the registration assignment (for example, /subscriptions/bb6d49b2-603d-489f-b6ca-ca4dc497c749/providers/Microsoft.ManagedServices/registrationAssignments/b0c052e5-c437-4771-a476-8b1201158a57).
 
 ```yaml
