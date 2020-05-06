@@ -14,7 +14,7 @@ Deletes the registration definition.
 
 ### Default (Default)
 ```
-Remove-AzManagedServicesDefinition -Id <String> [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf]
+Remove-AzManagedServicesDefinition -Name <String> [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
@@ -37,7 +37,7 @@ Deletes the registration definition.
 
 ### Example 1
 ```powershell
-PS C:\> Remove-RegistrationDefinition -Id 0513b566-cab0-4fef-9b53-a285cd33389f
+PS C:\> Remove-RegistrationDefinition -Name 0513b566-cab0-4fef-9b53-a285cd33389f
 ```
 
 Removes the registration definition given it identifier.
@@ -97,7 +97,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Id
+### -Name
 The registration definition identifier.
 
 ```yaml
@@ -127,7 +127,7 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -ResourceId
+### -Id
 ResourceId of the registration definition
 
 ```yaml
