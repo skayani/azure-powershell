@@ -37,7 +37,7 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.ManagedServices.Commands
 
         [Parameter(Mandatory = true, ParameterSetName = ByIdParameterSet, HelpMessage = "The Registration Assignment identifier.")]
         [ValidateNotNullOrEmpty]
-        public string Id { get; set; }
+        public string Name { get; set; }
 
         [Parameter(
             Mandatory = true,
@@ -45,7 +45,7 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.ManagedServices.Commands
             ParameterSetName = ByResourceIdParameterSet,
             HelpMessage = "The fully qualified resource id of registration assignment.")]
         [ValidateNotNullOrEmpty]
-        public string ResourceId { get; set; }
+        public string Id { get; set; }
 
         [Parameter(ParameterSetName = DefaultParameterSet, HelpMessage = "Whether to include registration definition details.")]
         [Parameter(ParameterSetName = ByResourceIdParameterSet, HelpMessage = "Whether to include registration definition details.")]
@@ -57,14 +57,14 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.ManagedServices.Commands
             string scope = null;
             string assignmentId = null;
 
-            if (this.IsParameterBound(x => x.ResourceId))
+            if (this.IsParameterBound(x => x.Id))
             {
-                assignmentId = this.ResourceId.GetResourceName();
-                scope = this.ResourceId.GetSubscriptionId().ToSubscriptionResourceId();
+                assignmentId = this.Id.GetResourceName();
+                scope = this.Id.GetSubscriptionId().ToSubscriptionResourceId();
             }
-            else if (this.IsParameterBound(x => x.Id))
+            else if (this.IsParameterBound(x => x.Name))
             {
-                assignmentId = this.Id;
+                assignmentId = this.Name;
                 scope = this.Scope ?? this.GetDefaultScope();
             }
             else if (this.IsParameterBound(x => x.Scope))
